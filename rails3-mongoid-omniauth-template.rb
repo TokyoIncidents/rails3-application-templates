@@ -51,11 +51,11 @@ def say_recipe(name); say "\033[1m\033[36m" + "recipe".rjust(10) + "\033[0m" + "
 def say_wizard(text); say_custom(@current_recipe || 'wizard', text) end
 
 def ask_wizard(question)
-  ask "\033[1m\033[30m\033[46m" + (@current_recipe || "prompt").rjust(10) + "\033[0m\033[36m" + "  #{question}\033[0m\]"
+  ask (@current_recipe || "prompt").rjust(10) + "#{question}"
 end
 
 def yes_wizard?(question)
-  answer = ask_wizard(question + " \033[33m(y/n)\033[0m")
+  answer = ask_wizard(question)
   case answer.downcase
     when "yes", "y"
       true
